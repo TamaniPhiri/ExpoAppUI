@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import HomeStack from "./Navigators/HomeStack";
+import Login from "./Screens/Auth/Login";
+import Onboard from "./Screens/Auth/Onboard";
+import Signup from './Screens/Auth/Signup'
+import { NavigationContainer } from "@react-navigation/native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
+
+const Stack =createSharedElementStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <NavigationContainer>
+          <Stack.Navigator initialRouteName='Welcome' screenOptions={{headerShown:false}}>
+              <Stack.Screen name='Onboard' component={Onboard}/>
+              <Stack.Screen name='Login' component={Login}/>
+              <Stack.Screen name='Signup' component={Signup}/>
+              <Stack.Screen name='Welcome' component={HomeStack}/>
+          </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
