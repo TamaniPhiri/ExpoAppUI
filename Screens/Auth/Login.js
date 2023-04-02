@@ -3,7 +3,7 @@ import React from 'react'
 
 const Login = () => {
   return (
-    <View>
+    <View style={{flex:1, justifyContent:'center', alignItems:'center', backgroundColor:'#303f81', paddingHorizontal:10}}>
       <Text>Login</Text>
     </View>
   )
