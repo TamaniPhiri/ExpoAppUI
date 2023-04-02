@@ -21,7 +21,7 @@ const Details = ({navigation,route}) => {
     <View style={{paddingHorizontal:10,flex:1, paddingTop:60}}>
       <View style={{alignItems:'center', justifyContent:'center'}}>
           <SharedElement id={`item.${item.id}.image`} style={{height:300, width:'100%', borderRadius:15}}>
-          <Image source={{uri:item.image}} style={{height:300, width:'100%', borderRadius:15}} resizeMode={'cover'}/>
+          <Image source={{uri:item.image}} style={{height:300, width:'100%', borderRadius:5}} resizeMode={'cover'}/>
           </SharedElement>
 
           <View style={{overflow:'hidden', width:'90%',height:100, paddingTop:20}}>

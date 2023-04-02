@@ -4,6 +4,7 @@ import Home from '../Screens/Home/Home';
 import Profile from '../Screens/Home/Profile'
 import Settings from '../Screens/Home/Settings'
 import Details from '../Screens/Home/Details/Details';
+import Notifications from '../Screens/Home/Notifications';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import {Feather} from 'react-native-vector-icons';
 import * as Animatable from 'react-native-animatable'
@@ -27,6 +28,7 @@ const DetailStack=({navigation})=>{
           return [{id:`item.${item.id}.image`},{id:`item.${item.id}.meta`}];
         }}
       />
+      <Stack.Screen name='Notifications' component={Notifications}/>
     </Stack.Navigator>
   )
 }
@@ -40,7 +42,7 @@ const HomeStack = () => {
           screenOptions={{
             headerShown:false,
             tabBarShowLabel:false,
-            tabBarStyle:{backgroundColor:'#172A3A', height:55,marginHorizontal:15, position:'absolute', borderRadius:8, marginVertical:15,shadowColor: "#000", shadowOffset:{width:0, height:50}, shadowOpacity:400.58, shadowRadius:100.00, elevation:10,borderTopWidth: 0},
+            tabBarStyle:{backgroundColor:'#172A3A', height:55,marginHorizontal:15, position:'absolute', borderRadius:8, marginVertical:8,shadowColor: "#000", shadowOffset:{width:0, height:50}, shadowOpacity:400.58, shadowRadius:100.00, elevation:10,borderTopWidth: 0},
             tabBarHideOnKeyboard:true,
           }}
           >
