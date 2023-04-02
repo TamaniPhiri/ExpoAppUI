@@ -13,7 +13,7 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-          <Stack.Navigator initialRouteName='Welcome' screenOptions={{headerShown:false}}>
+          <Stack.Navigator initialRouteName='Onboard' screenOptions={{headerShown:false}}>
               <Stack.Screen name='Onboard' component={Onboard}/>
               <Stack.Screen name='Login' component={Login}/>
               <Stack.Screen name='Signup' component={Signup}/>
