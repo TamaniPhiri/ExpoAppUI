@@ -1,9 +1,8 @@
 import { View, Text, FlatList,Image,TouchableOpacity, ScrollView, ImageBackground} from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
 import React from 'react'
 import { SharedElement } from 'react-navigation-shared-element'
 import * as Animatable from 'react-native-animatable'
-import {Feather} from 'react-native-vector-icons'
+import {Feather, Ionicons} from 'react-native-vector-icons'
 
 const Home = ({navigation}) => {
 
@@ -18,25 +17,29 @@ const Home = ({navigation}) => {
       id:1,
       name:"Italiano",
       image:"https://images.pexels.com/photos/1002745/pexels-photo-1002745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam."
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
+      rating:3.1
     },
     {
       id:2,
       name:"Vinland",
       image:"https://images.pexels.com/photos/221106/pexels-photo-221106.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam."
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
+      rating:3.9
     },
     {
       id:3,
       name:"Denmark",
       image:"https://images.pexels.com/photos/2189685/pexels-photo-2189685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam."
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
+      rating:4.2
     },
     {
       id:4,
       name:"Brighton",
       image:"https://images.pexels.com/photos/5490166/pexels-photo-5490166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam."
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
+      rating:5.0
     },
   ]
 
@@ -48,15 +51,32 @@ const Home = ({navigation}) => {
 
       {/*Header*/}
       <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
-        <Text style={{fontSize:26, fontWeight:500}}>
+        <Text style={{fontSize:26, fontWeight:500,color:'#172A3A'}}>
           Discover
         </Text>
 
         {/*Notifications Button*/}
         <TouchableOpacity onPress={()=>navigation.navigate('Notifications')}>
-          <Feather name='bell' style={{fontSize:20}}/>
+          <Feather name='bell' style={{fontSize:20,color:'#172A3A'}}/>
         </TouchableOpacity>
       </View>
+
+      {/*Popular now*/}
+      <View style={{flexDirection:'row', width:'100%', alignItems:'center', paddingTop:30,justifyContent:'space-between'}}>
+        <Text style={{fontSize:18}}>
+          Popular
+        </Text>
+        <TouchableOpacity onPress={()=>navigation.navigate('Popular')}
+          style={{flexDirection:'row', alignItems:'center'}}
+          >
+          <Text style={{textDecorationLine:'underline'}}>
+            See all
+          </Text>
+          <Feather name='arrow-right' style={{paddingLeft:4}}/>
+        </TouchableOpacity>
+      </View>
+
+      {/*Places List*/}
       <View>
         <FlatList
           showsHorizontalScrollIndicator={false}
@@ -92,12 +112,33 @@ const Home = ({navigation}) => {
                         {item.name}
                       </Animatable.Text>
                     </Animatable.View>
+                    <View style={{position:'absolute', bottom:0, width:'100%', padding:6, flexDirection:'row', alignItems:'center'}}>
+                      <Ionicons name='star' style={{color:'#ffd700', fontSize:14}}/>
+                      <Text style={{color:'#fff', paddingLeft:4,fontWeight:600, fontSize:14}}> 
+                        {item.rating}
+                      </Text>
+                    </View>
                     
                 </View>
               </TouchableOpacity>
             )
           }}
         />
+
+        {/*Nearby*/}
+        <View>
+          <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
+            <Text style={{fontSize:18}}>
+              Nearby
+            </Text>
+            <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={()=>navigation.navigate('Nearby')}>
+              <Text style={{textDecorationLine:'underline'}}>
+                See all
+              </Text>
+              <Feather name='arrow-right' style={{paddingLeft:4}}/>
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
     </ScrollView>
   )
