@@ -7,7 +7,6 @@ import Details from '../Screens/Home/Details/Details';
 import Notifications from '../Screens/Home/Notifications';
 import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import {Feather} from 'react-native-vector-icons';
-import * as Animatable from 'react-native-animatable'
 import { View } from 'react-native';
 import Popular from '../Screens/Home/Details/Popular';
 import Nearby from '../Screens/Home/Details/Nearby';
@@ -15,10 +14,6 @@ import Nearby from '../Screens/Home/Details/Nearby';
 const Tab=createBottomTabNavigator();
 const Stack=createSharedElementStackNavigator();
 
-const animation={
-  0:{opacity:0, translateX:300},
-  1:{opacity:1,translateX:0}
-}
 
 const DetailStack=({navigation})=>{
   return(

@@ -43,6 +43,38 @@ const Home = ({navigation}) => {
     },
   ]
 
+
+  const data=[
+    {
+      id:1,
+      name:"Chibombo",
+      image:"https://images.pexels.com/photos/4906520/pexels-photo-4906520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
+      rating:1.5
+    },
+    {
+      id:2,
+      name:"Lusaka",
+      image:"https://images.pexels.com/photos/6161507/pexels-photo-6161507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
+      rating:1.5
+    },
+    {
+      id:3,
+      name:"Chipata",
+      image:"https://images.pexels.com/photos/877970/pexels-photo-877970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
+      rating:1.5
+    },
+    {
+      id:4,
+      name:"Chipembi",
+      image:"https://images.pexels.com/photos/14356690/pexels-photo-14356690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
+      rating:4.6
+    }
+  ]
+
   return (
     <ScrollView style={{paddingHorizontal:10, flex:1, marginTop:50}} 
       showsVerticalScrollIndicator={false} 
@@ -57,22 +89,22 @@ const Home = ({navigation}) => {
 
         {/*Notifications Button*/}
         <TouchableOpacity onPress={()=>navigation.navigate('Notifications')}>
-          <Feather name='bell' style={{fontSize:20,color:'#172A3A'}}/>
+          <Feather name='bell' style={{fontSize:20,color:'#508991'}}/>
         </TouchableOpacity>
       </View>
 
       {/*Popular now*/}
       <View style={{flexDirection:'row', width:'100%', alignItems:'center', paddingTop:30,justifyContent:'space-between'}}>
-        <Text style={{fontSize:18}}>
+        <Text style={{fontSize:18,color:'#172A3A'}}>
           Popular
         </Text>
         <TouchableOpacity onPress={()=>navigation.navigate('Popular')}
           style={{flexDirection:'row', alignItems:'center'}}
           >
-          <Text style={{textDecorationLine:'underline'}}>
+          <Text style={{textDecorationLine:'underline',color:'#508991'}}>
             See all
           </Text>
-          <Feather name='arrow-right' style={{paddingLeft:4}}/>
+          <Feather name='arrow-right' style={{paddingLeft:4, color:'#508991'}}/>
         </TouchableOpacity>
       </View>
 
@@ -128,16 +160,45 @@ const Home = ({navigation}) => {
         {/*Nearby*/}
         <View>
           <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
-            <Text style={{fontSize:18}}>
+            <Text style={{fontSize:18,color:'#172A3A'}}>
               Nearby
             </Text>
             <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={()=>navigation.navigate('Nearby')}>
-              <Text style={{textDecorationLine:'underline'}}>
+              <Text style={{textDecorationLine:'underline',color:'#508991'}}>
                 See all
               </Text>
-              <Feather name='arrow-right' style={{paddingLeft:4}}/>
+              <Feather name='arrow-right' style={{paddingLeft:4, color:'#508991'}}/>
             </TouchableOpacity>
           </View>
+
+          {/*Nearby Cards*/}
+          <FlatList
+            contentContainerStyle={{paddingBottom:60}}
+            keyExtractor={item=>item.id}
+            data={data}
+            renderItem={({item})=>{
+              return(
+                <View style={{marginVertical:10, flexDirection:'row', backgroundColor:'#d3d3d3', padding:10, borderRadius:10, width:'100%'}}>
+                  <Image 
+                    source={{uri:item.image}} 
+                    style={{height:150, width:'50%',borderRadius:5}} 
+                    resizeMode={'cover'}
+                    />
+                  <View style={{paddingLeft:10}}>
+                    <View>
+                      <Text style={{color:'#172A3A', fontSize:24, fontWeight:400}}>{item.name}</Text>
+                    </View>
+                    <View style={{flexDirection:'row', alignItems:'center', paddingTop:5}}>
+                      <Feather name='map-pin' style={{color:'#508991'}}/>
+                      <Text style={{color:'#508991'}}>
+                        10 miles
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              )
+            }}
+          />
         </View>
       </View>
     </ScrollView>
