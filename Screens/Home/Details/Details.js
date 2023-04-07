@@ -195,9 +195,9 @@ useEffect(() => {
         </View>
 
         {/*Gallery*/}
-        <View>
-          <View>
-            <Text>
+        <View style={{width:'100%'}}>
+          <View style={{paddingVertical:10}}>
+            <Text style={{fontFamily:'poppins-medium',fontSize:22}}>
               Gallery
             </Text>
           </View>
