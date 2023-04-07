@@ -19,7 +19,11 @@ const Details = ({navigation,route}) => {
   const {item}=route.params;
 
   return (
-    <View style={{paddingHorizontal:10,flex:1, paddingTop:60}}>
+    <ScrollView 
+      style={{paddingHorizontal:10,flex:1, paddingTop:60}}
+      showsVerticalScrollIndicator={false}
+      horizontal={false}
+      >
       <View style={{alignItems:'center', justifyContent:'center'}}>
           <SharedElement id={`item.${item.id}.image`} style={{height:300, width:'100%', borderRadius:15}}>
             <ImageBackground 
@@ -32,40 +36,59 @@ const Details = ({navigation,route}) => {
 
           {/*Go back Button*/}
           <Animatable.View
-          duration={630}
+            duration={630}
             useNativeDriver
             animation={slide} 
             style={{position:'absolute', top:10, width:'100%', left:10, justifyContent:'flex-start'}}
             >
-            <TouchableOpacity
-              onPress={()=>navigation.goBack()} 
-              style={{backgroundColor:'#fff',alignItems:'center', borderRadius:20,width:30, height:30, justifyContent:'center'}}
-              >
+              <TouchableOpacity
+                onPress={()=>navigation.goBack()} 
+                style={{backgroundColor:'#fff',alignItems:'center', borderRadius:20,width:30, height:30, justifyContent:'center'}}
+                >
               <Feather name='x' style={{color:'#508991',fontSize:24}}/>
-            </TouchableOpacity>
+              </TouchableOpacity>
+
           </Animatable.View>
 
-          <View style={{overflow:'hidden', width:'100%',height:100, paddingTop:20}}>
-            <Animatable.Text
-              useNativeDriver
-              animation={animation} 
-              adjustsFontSizeToFit
-              numberOfLines={2}
-              duration={900}
-              >
-              {item.description}
-            </Animatable.Text>
-            <Animatable.Text 
-              animation={slide} 
-              duration={1200}
-              useNativeDriver
-              >
-              {item.name}
-            </Animatable.Text>
-          </View>
+          
+
 
       </View>
-    </View>
+
+
+      {/*Socials Card*/}
+      <Animatable.View 
+          style={{width:'60%',alignSelf:'center',flexDirection:'row',justifyContent:"space-between", backgroundColor:'#d3d3d3', bottom:40,paddingHorizontal:20,paddingVertical:10,borderRadius:10}}
+          useNativeDriver
+          animation={animation}
+          >
+
+          {/*Owner Image*/}
+          <View style={{justifyContent:'center',width:'30%'}}>
+            <Image source={{uri:item.ownerImg}} style={{height:62,width:62,borderRadius:100}}/>
+          </View>
+
+          {/*Owner Links*/}
+          <View style={{width:'70%', justifyContent:'center',paddingLeft:10}}>
+              <View>
+                {/*Owner Name /Occupation */}
+                <Text>
+                  {item.owner}
+                </Text>
+                <Text>
+                  {item.ownerOccupation}
+                </Text>
+              </View>
+
+              {/*Owner Social Icons*/}
+              <View style={{flexDirection:'row'}}>
+                <Feather name='facebook'/>
+                <Feather name='twitter'/>
+                <Feather name='instagram'/>
+              </View>
+          </View>
+      </Animatable.View>
+    </ScrollView>
   )
 }
 
