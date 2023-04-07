@@ -134,6 +134,7 @@ useEffect(() => {
       {/*Nearby Cards*/}
       <FlatList
             contentContainerStyle={{paddingBottom:60}}
+            showsVerticalScrollIndicator={false}
             keyExtractor={item=>item.id}
             data={data}
             horizontal={false}
