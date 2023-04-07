@@ -10,6 +10,8 @@ import {Feather} from 'react-native-vector-icons';
 import { View } from 'react-native';
 import Popular from '../Screens/Home/Details/Popular';
 import Nearby from '../Screens/Home/Details/Nearby';
+import AllNearby from '../Screens/Home/Details/AllNearby';
+import NearbyDetails from '../Screens/Home/Details/NearbyDetails';
 
 const Tab=createBottomTabNavigator();
 const Stack=createSharedElementStackNavigator();
@@ -22,12 +24,19 @@ const DetailStack=({navigation})=>{
       <Stack.Screen name='Details' component={Details}
         sharedElements={(route, otherRoute, showing) => {
           const { item } = route.params;
-          return [{id:`item.${item.id}.image`},{id:`item.${item.id}.meta`}];
+          return [{id:`item.${item.id}.image`}];
         }}
       />
       <Stack.Screen name='Notifications' component={Notifications}/>
       <Stack.Screen name='Popular' component={Popular}/>
-      <Stack.Screen name='Nearby' component={Nearby}/>
+      <Stack.Screen name='Nearby' component={Nearby}
+        sharedElements={(route, otherRoute, showing) => {
+          const { item } = route.params;
+          return [{id:`item.${item.id}.near`}];
+        }}
+      />
+      <Stack.Screen name='AllNearby' component={AllNearby}/>
+      <Stack.Screen name='NearbyDetails' component={NearbyDetails}/>
     </Stack.Navigator>
   )
 }

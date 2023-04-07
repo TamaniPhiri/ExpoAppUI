@@ -3,6 +3,7 @@ import React from 'react'
 import { SharedElement } from 'react-navigation-shared-element'
 import * as Animatable from 'react-native-animatable'
 import {Feather, Ionicons} from 'react-native-vector-icons'
+import Nearby from './Details/Nearby'
 
 const Home = ({navigation}) => {
 
@@ -18,71 +19,45 @@ const Home = ({navigation}) => {
       name:"Italiano",
       image:"https://images.pexels.com/photos/1002745/pexels-photo-1002745.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:3.1
+      rating:3.1,
+      pricing:"K950/m"
     },
     {
       id:2,
       name:"Vinland",
       image:"https://images.pexels.com/photos/221106/pexels-photo-221106.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:3.9
+      rating:3.9,
+      pricing:"K1,500/m"
     },
     {
       id:3,
       name:"Denmark",
       image:"https://images.pexels.com/photos/2189685/pexels-photo-2189685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:4.2
+      rating:4.2,
+      pricing:"K750/m"
     },
     {
       id:4,
       name:"Brighton",
       image:"https://images.pexels.com/photos/5490166/pexels-photo-5490166.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:5.0
+      rating:5.0,
+      pricing:"K2,950/m"
     },
   ]
 
-
-  const data=[
-    {
-      id:1,
-      name:"Chibombo",
-      image:"https://images.pexels.com/photos/4906520/pexels-photo-4906520.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
-      rating:1.5
-    },
-    {
-      id:2,
-      name:"Lusaka",
-      image:"https://images.pexels.com/photos/6161507/pexels-photo-6161507.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
-      rating:1.5
-    },
-    {
-      id:3,
-      name:"Chipata",
-      image:"https://images.pexels.com/photos/877970/pexels-photo-877970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
-      rating:1.5
-    },
-    {
-      id:4,
-      name:"Chipembi",
-      image:"https://images.pexels.com/photos/14356690/pexels-photo-14356690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
-      rating:4.6
-    }
-  ]
 
   return (
-    <ScrollView style={{paddingHorizontal:10, flex:1, marginTop:50}} 
+    <View style={{paddingHorizontal:10, flex:1, marginTop:50,width:'100%'}} 
       showsVerticalScrollIndicator={false} 
       horizontal={false}
+      nestedScrollEnabled={true}
       >
 
       {/*Header*/}
-      <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center'}}>
+      <View style={{flexDirection:'row', justifyContent:'space-between', alignItems:'center',paddingVertical:10}}>
         <Text style={{fontSize:26, fontWeight:500,color:'#172A3A'}}>
           Discover
         </Text>
@@ -94,6 +69,7 @@ const Home = ({navigation}) => {
       </View>
 
       {/*Popular now*/}
+      <ScrollView>
       <View style={{flexDirection:'row', width:'100%', alignItems:'center', paddingTop:30,justifyContent:'space-between'}}>
         <Text style={{fontSize:18,color:'#172A3A'}}>
           Popular
@@ -133,7 +109,7 @@ const Home = ({navigation}) => {
                     <Animatable.View 
                       useNativeDriver
                       animation={animation} 
-                      style={{overflow:'hidden',width:200,display:'flex', position:'absolute', top:0, padding:6}}
+                      style={{overflow:'hidden',width:200,display:'flex', position:'absolute', top:0, padding:6, flexDirection:'row', alignItems:'center', justifyContent:'space-between'}}
                       numberOfLines={3}
                       >
                       <Animatable.Text
@@ -143,6 +119,9 @@ const Home = ({navigation}) => {
                         >
                         {item.name}
                       </Animatable.Text>
+                      <Text style={{color:'#fff', paddingLeft:20, fontWeight:200}}>
+                        {item.pricing}
+                      </Text>
                     </Animatable.View>
                     <View style={{position:'absolute', bottom:0, width:'100%', padding:6, flexDirection:'row', alignItems:'center'}}>
                       <Ionicons name='star' style={{color:'#ffd700', fontSize:14}}/>
@@ -156,52 +135,12 @@ const Home = ({navigation}) => {
             )
           }}
         />
-
-        {/*Nearby*/}
-        <View>
-          <View style={{flexDirection:'row', width:'100%', justifyContent:'space-between'}}>
-            <Text style={{fontSize:18,color:'#172A3A'}}>
-              Nearby
-            </Text>
-            <TouchableOpacity style={{flexDirection:'row',alignItems:'center'}} onPress={()=>navigation.navigate('Nearby')}>
-              <Text style={{textDecorationLine:'underline',color:'#508991'}}>
-                See all
-              </Text>
-              <Feather name='arrow-right' style={{paddingLeft:4, color:'#508991'}}/>
-            </TouchableOpacity>
-          </View>
-
-          {/*Nearby Cards*/}
-          <FlatList
-            contentContainerStyle={{paddingBottom:60}}
-            keyExtractor={item=>item.id}
-            data={data}
-            renderItem={({item})=>{
-              return(
-                <View style={{marginVertical:10, flexDirection:'row', backgroundColor:'#d3d3d3', padding:10, borderRadius:10, width:'100%'}}>
-                  <Image 
-                    source={{uri:item.image}} 
-                    style={{height:150, width:'50%',borderRadius:5}} 
-                    resizeMode={'cover'}
-                    />
-                  <View style={{paddingLeft:10}}>
-                    <View>
-                      <Text style={{color:'#172A3A', fontSize:24, fontWeight:400}}>{item.name}</Text>
-                    </View>
-                    <View style={{flexDirection:'row', alignItems:'center', paddingTop:5}}>
-                      <Feather name='map-pin' style={{color:'#508991'}}/>
-                      <Text style={{color:'#508991'}}>
-                        10 miles
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              )
-            }}
-          />
-        </View>
+          <>
+            <Nearby/>
+          </>
       </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   )
 }
 
