@@ -48,7 +48,7 @@ const Details = ({navigation,route}) => {
     });
     return true;
   }
-  
+
 
 useEffect(() => {
     async function loadAsync() {
@@ -96,14 +96,14 @@ useEffect(() => {
 
           </Animatable.View>
 
-          
+
 
 
       </View>
 
 
       {/*Socials Card*/}
-      <Animatable.View 
+      <Animatable.View
           style={{width:'65%',alignSelf:'center',flexDirection:'row',justifyContent:"space-between", backgroundColor:'#fffafa', bottom:45,paddingHorizontal:20,paddingVertical:10,borderRadius:10}}
           useNativeDriver
           animation={animation}
@@ -116,7 +116,7 @@ useEffect(() => {
 
           {/*Owner Links*/}
           <View style={{width:'70%', justifyContent:'center',paddingLeft:10}}>
-            
+
               <View>
                 {/*Owner Name /Occupation */}
                 <Text style={{fontFamily:'poppins-medium',fontSize:18,color:'#172A3A'}}>
@@ -152,7 +152,7 @@ useEffect(() => {
         <View style={{width:'100%', justifyContent:'space-between', flexDirection:'row',paddingHorizontal:15,paddingVertical:15}}>
 
           {/*Bedrooms*/}
-          <Animatable.View 
+          <Animatable.View
             style={{backgroundColor:'#d3d3d3',borderRadius:8,alignItems:'center'}}
             useNativeDriver
             animation={left}
@@ -163,7 +163,7 @@ useEffect(() => {
           </Animatable.View>
 
           {/*Bathrooms*/}
-          <Animatable.View 
+          <Animatable.View
             style={{backgroundColor:'#d3d3d3',borderRadius:8,alignItems:'center'}}
             useNativeDriver
             animation={down}
@@ -174,7 +174,7 @@ useEffect(() => {
           </Animatable.View>
 
           {/*Kitchen*/}
-          <Animatable.View 
+          <Animatable.View
             style={{backgroundColor:'#d3d3d3',borderRadius:8,alignItems:"center"}}
             useNativeDriver
             animation={right}
@@ -204,7 +204,7 @@ useEffect(() => {
 
           {/*Images*/}
           <View>
-            <FlatList 
+            <FlatList
               horizontal/>
           </View>
 
