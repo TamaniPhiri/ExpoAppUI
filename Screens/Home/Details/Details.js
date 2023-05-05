@@ -220,7 +220,7 @@ Details.sharedElements = (route, otherRoute, showing) => {
   return [
     {
       id:`item.${item.id}.image`,
-    },
+    }
   ];;
 }
 
