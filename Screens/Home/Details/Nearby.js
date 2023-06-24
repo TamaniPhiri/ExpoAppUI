@@ -64,57 +64,12 @@ useEffect(() => {
       pricing:"500",
       location:"Meanwood"
     },
-    {
-      id:4,
-      name:"Royal Retreat",
-      image:"https://images.pexels.com/photos/14356690/pexels-photo-14356690.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam",
-      rating:4.6,
-      pricing:"850",
-      location:"East Park"
-    },
-    {
-      id:5,
-      name:"Villa Solstice",
-      image:"https://images.pexels.com/photos/259751/pexels-photo-259751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:5.0,
-      pricing:"2,950",
-      location:"Chawama"
-    },
-    {
-      id:6,
-      name:"The Grand Estate",
-      image:"https://images.pexels.com/photos/323772/pexels-photo-323772.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:5.0,
-      pricing:"1,950",
-      location:"Zanimuone"
-    },
-    {
-      id:7,
-      name:"The Enchanted Villa",
-      image:"https://images.pexels.com/photos/221024/pexels-photo-221024.jpeg?auto=compress&cs=tinysrgb&w=600",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:5.0,
-      pricing:"6,550",
-      location:"Lusaka"
-    },
-    {
-      id:8,
-      name:"Sapphire Springs",
-      image:"https://images.pexels.com/photos/259593/pexels-photo-259593.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-      description:"Lorem ipsum dolor sit amet consectetur in eius iure sit quasi aliquam.",
-      rating:5.0,
-      pricing:"8,630",
-      location:"Kabulonga"
-    },
   ]
 
 
 
   return (
-    <View>
+    <View className="">
 
       {/*Nearby*/}
       <View>
